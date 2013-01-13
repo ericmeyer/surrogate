@@ -111,11 +111,14 @@ MockClient.new(12).id # => 12
 ```ruby
 class MockMP3
   Surrogate.endow self
-  define :play # defaults are optional, will raise error if invoked without being told what to do
+  define :play # default behavior is to do nothing, same as empty block yielding nothing
   define :info
 end
 
 mp3 = MockMP3.new
+
+# default behavior
+mp3.play # => nil
 
 # verbs
 mp3.will_play true
